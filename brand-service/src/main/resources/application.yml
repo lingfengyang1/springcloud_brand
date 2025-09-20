@@ -1,0 +1,25 @@
+server:
+  port: 8081 # 服务端口
+
+spring:
+  application:
+    name: brand-service # 服务名称，用于服务注册和发现
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root # 数据库用户名
+    password: root # 数据库密码
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # 注册中心地址
+  instance:
+    prefer-ip-address: true # 注册时使用IP地址
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml # mapper文件位置
+  type-aliases-package: com.example.brand.entity # 实体类包路径
+  configuration:
+    map-underscore-to-camel-case: true # 开启下划线转驼峰
+    
